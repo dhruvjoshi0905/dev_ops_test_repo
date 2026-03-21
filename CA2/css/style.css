@@ -1,0 +1,327 @@
+/* ==================================================================
+   Student Feedback Registration Form — External CSS
+   Clean, professional light-mode design
+   ================================================================== */
+
+/* ── Design Tokens ─────────────────────────────────────────────── */
+:root {
+    --bg:            #f0f2f5;
+    --card-bg:       #ffffff;
+    --accent:        #4f46e5;
+    --accent-hover:  #4338ca;
+    --accent-light:  #eef2ff;
+    --success:       #16a34a;
+    --success-bg:    #dcfce7;
+    --danger:        #dc2626;
+    --danger-bg:     #fef2f2;
+    --text:          #1e293b;
+    --text-muted:    #64748b;
+    --border:        #e2e8f0;
+    --input-bg:      #f8fafc;
+    --font:          'Inter', system-ui, -apple-system, sans-serif;
+    --radius:        8px;
+    --shadow:        0 1px 3px rgba(0,0,0,0.08), 0 4px 14px rgba(0,0,0,0.04);
+    --transition:    0.2s ease;
+}
+
+/* ── Reset & Base ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+/* ── Hide background blobs (not needed in light mode) ──────────── */
+.bg-blob { display: none; }
+
+/* ── Form Card ─────────────────────────────────────────────────── */
+.form-card {
+    width: 100%;
+    max-width: 540px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem 2rem;
+    box-shadow: var(--shadow);
+}
+
+/* ── Header ────────────────────────────────────────────────────── */
+.form-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+.logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; height: 50px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+.form-header h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+}
+.accent-underline {
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+}
+.subtitle {
+    margin-top: 0.3rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* ── Form Groups ───────────────────────────────────────────────── */
+.form-group {
+    margin-bottom: 1.15rem;
+}
+.form-group > label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.req { color: var(--danger); }
+
+/* ── Input Wrapper ─────────────────────────────────────────────── */
+.input-wrap {
+    display: flex;
+    align-items: center;
+    background: var(--input-bg);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+.input-wrap:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+.input-icon {
+    display: flex;
+    align-items: center;
+    padding-left: 0.75rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+.input-wrap:focus-within .input-icon {
+    color: var(--accent);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: var(--font);
+    font-size: 0.9rem;
+    color: var(--text);
+    padding: 0.65rem 0.75rem;
+}
+select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+.select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--text-muted);
+    pointer-events: none;
+}
+.select-wrap { position: relative; }
+
+input::placeholder, textarea::placeholder {
+    color: #94a3b8;
+}
+select option {
+    background: #fff;
+    color: var(--text);
+}
+
+/* ── Textarea ──────────────────────────────────────────────────── */
+.textarea-wrap { align-items: flex-start; }
+textarea {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: var(--font);
+    font-size: 0.9rem;
+    color: var(--text);
+    padding: 0.65rem 0.75rem;
+    resize: vertical;
+    min-height: 90px;
+}
+.textarea-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 0.25rem;
+}
+.word-count {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+/* ── Radio Group ───────────────────────────────────────────────── */
+.radio-group {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    margin-top: 0.2rem;
+}
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0;
+    padding: 0.45rem 0.85rem;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    background: var(--input-bg);
+    transition: border-color var(--transition), background var(--transition);
+}
+.radio-label:hover {
+    border-color: var(--accent);
+    background: var(--accent-light);
+}
+.radio-label input[type="radio"] { display: none; }
+.radio-custom {
+    width: 16px; height: 16px;
+    border: 2px solid var(--text-muted);
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    transition: border-color var(--transition);
+}
+.radio-custom::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: var(--accent);
+    transform: scale(0);
+    transition: transform var(--transition);
+}
+.radio-label input[type="radio"]:checked ~ .radio-custom {
+    border-color: var(--accent);
+}
+.radio-label input[type="radio"]:checked ~ .radio-custom::after {
+    transform: scale(1);
+}
+
+/* ── Error Messages ────────────────────────────────────────────── */
+.error-msg {
+    display: none;
+    font-size: 0.76rem;
+    color: var(--danger);
+    margin-top: 0.25rem;
+}
+.error-msg.visible { display: block; }
+.form-group.has-error .input-wrap {
+    border-color: var(--danger);
+    background: var(--danger-bg);
+}
+.form-group.has-error .error-msg { display: block; }
+.form-group.has-error .radio-label {
+    border-color: rgba(220, 38, 38, 0.35);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────── */
+.btn-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+.btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-family: var(--font);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.7rem 1.25rem;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+.btn:active { transform: scale(0.98); }
+
+.btn-submit {
+    background: var(--accent);
+    color: #fff;
+}
+.btn-submit:hover { background: var(--accent-hover); }
+.btn-submit .btn-icon { display: flex; }
+
+.btn-reset {
+    background: #fff;
+    color: var(--text-muted);
+    border: 1.5px solid var(--border);
+}
+.btn-reset:hover {
+    background: var(--input-bg);
+    color: var(--text);
+}
+
+/* ── Success Toast ─────────────────────────────────────────────── */
+.toast {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.5rem;
+    background: var(--success);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 16px rgba(22, 163, 74, 0.25);
+    color: #fff;
+}
+.toast[hidden] { display: none; }
+.toast-icon { display: flex; flex-shrink: 0; }
+.toast-body strong { display: block; font-size: 0.95rem; }
+.toast-body p { font-size: 0.82rem; opacity: 0.9; }
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .form-card { padding: 1.5rem 1.15rem; }
+    .form-header h1 { font-size: 1.2rem; }
+    .radio-group { flex-direction: column; gap: 0.4rem; }
+    .btn-group { flex-direction: column; }
+}
